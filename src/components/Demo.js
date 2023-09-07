@@ -40,7 +40,7 @@ export default function Demo() {
   const receiveEncodedFromBackend = async (path_param) => {
     try {
       const response = await axios.get(
-      `${process.env.REACT_APP_BACKEND_BASE_URL}/prediction/${path_param}`
+      `http://eb-backend-7ca04be571cd.herokuapp.com/prediction/${path_param}`
       );
       setReceivedArray(JSON.parse(response.data));
     } catch (error) {
@@ -53,7 +53,7 @@ export default function Demo() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/image/${path_param}`, {
+      const response = await axios.post(`http://eb-backend-7ca04be571cd.herokuapp.com/image/${path_param}`, {
         encoded_string_list: array,
       });
       receiveEncodedFromBackend(path_param);
